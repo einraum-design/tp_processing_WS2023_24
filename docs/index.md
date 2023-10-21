@@ -137,6 +137,9 @@ width und height sollten verwendet werden, um Positionen von graphischen Element
 
 frameCount -> Zähler der nach jedem function draw Druchgang hochgezählt wird.  Zahlenwert Ganzzahlen (Integer)
 
-- Funktionen mit Rückgabetyp
-Am Ende des Funktionsaufrufs muss ein ein „return" mit dem Rückgabewert stehen. 
-die random() Funktion liefert zB. ein Fließkommerzahl zurück ...
+### Die random-Funktion
+Die Random Funktion git bei jedem Aufruf eine neue zufällige Zahl zurück.
+```
+random(400); // gibt eine Zahl zwischen 0 und 400 zurück
+random(200, 400); // gibt eine Zahl zwischen 200 und 400 zurück
+```
