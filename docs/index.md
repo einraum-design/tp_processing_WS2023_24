@@ -1,9 +1,9 @@
-# tp_processing_SoSe2023
-Kursmaterial TP Processing (p5js) Sommersemester 2023
+# tp_processing_WS2023-24
+Kursmaterial TP Processing (p5js) Wintersemester 2023-24
 Kursdokumentation TP Processing TH|W–S FB Gestaltung  
 
 ## 13.10.2023 – Einfache Formen und Farben
-- [TP 1A](https://einraum-design.github.io/tp_processing_SoSe2023_24/TP1/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2023_24/blob/main/docs/TP1/sketch.js)
+- [TP 1A](https://einraum-design.github.io/tp_processing_WS2023_24/TP1/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2023_24/blob/main/docs/TP1/sketch.js)
 
 
 ### Kommentare  
@@ -92,3 +92,51 @@ fill() und stroke() können mit
 fill() und stroke() müssen jeweils bevor eine Form gezeichnet wird festgelegt werden. Nach einem Aufruf werden alle Formen in diesen Farben gezeichnet, bis fill() oder stroke() mit neuen Werten aufgerufen werden.
 
 Mit noFill() und noStroke() kann auch keine Füllfarb oder keine Kontur festgelegt werden.
+
+
+## Grundstruktur setup & draw. Systemvariablen
+- [TP 2](https://einraum-design.github.io/tp_processing_WS2023_24/TP2/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2023_24/blob/main/docs/TP2/sketch.js)
+
+
+### function setup & draw
+
+```
+function setup(){
+
+}
+
+function draw(){
+
+}
+```
+Die beiden Funktionen sind das Grundgerüst jeder Processing Anwendung.
+Alles was im Funktionsrumpf der function setup() – zwische den geschweiften Klammern steht – wird zum Programmstart einmal ausgeführt. Hier werden alles Grundeinstellungen für das Programm gesetzt und das Canvas Elemet erstellt.
+
+```
+createCanvas(600, 400);
+
+```
+
+Nach Ablauf der function setup() wird der Inhalt der function draw() ausgeführt. 
+Alles was in der function draw() steht wird immer wieder auf's Neue ausgeführt – standartmäßig 60 Mal pro Sekunde. 
+Die function draw() beginnt meistens mit der background function, die alles aus dem vorherigen Frame übermalt und für jeden neuen Frame eine neue Zeichenfläche bereitstellt.
+
+### Processing Variablen
+
+Processing bietet mehrere Variablen die von Processing vordefiniert sind.
+Diese könne einfach als Platzhalter im Skript eingesetzt werden und werden während der Laufzeit 
+des Programmes mit den aktuellen Werten ersetzt.
+
+mouseX -> Maus x - Position innerhalb vom Sketch  Zahlenwert Ganzzahlen (Integer)
+mouseY -> Maus y - Position innerhalb vom Sketch  Zahlenwert Ganzzahlen (Integer)
+width ->  Sketchbreite Zahlenwert Ganzzahlen (Integer)
+height -> Sketchhöhe Zahlenwert Ganzzahlen (Integer)
+
+
+width und height sollten verwendet werden, um Positionen von graphischen Elementen in der Anwendung unabhängig von der Fenstergröße zu berechnen.
+
+frameCount -> Zähler der nach jedem function draw Druchgang hochgezählt wird.  Zahlenwert Ganzzahlen (Integer)
+
+- Funktionen mit Rückgabetyp
+Am Ende des Funktionsaufrufs muss ein ein „return" mit dem Rückgabewert stehen. 
+die random() Funktion liefert zB. ein Fließkommerzahl zurück ...
