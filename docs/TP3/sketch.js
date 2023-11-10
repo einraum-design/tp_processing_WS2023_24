@@ -29,6 +29,8 @@ let font;
 
 let img;
 
+let backgroundColor;
+
 
 function preload(){
   font = loadFont("fonts/Merriweather-Italic.ttf");
@@ -38,6 +40,7 @@ function preload(){
 
 function setup() {
   createCanvas(400, 400);
+  backgroundColor = color(120);
 
   textFont(font, 18);
   
@@ -45,10 +48,20 @@ function setup() {
 }
 
 function draw() {
-  
-  background(220);
+  fill(255);
+
+  background(backgroundColor);
   text(name, 20, 20);
   image(img, 20, 40, img.width/3.0, img.height/3.0);
+
+  // Processing Variable
+  // mouseIsPressed  boolean -> true / false Zustand der rechten Maustaste ist gedrückt oder nicht gedrückt
+
+  if(mouseIsPressed){
+    fill(255, 0, 0);
+  } else {
+    fill(255);
+  }
 
 
   ellipse(xPos, yPos, 30, 30);
@@ -63,24 +76,41 @@ function draw() {
   // a <= b
   // a == b
 
+
+  // VERKNÜPFUNGSOPERATOREN
+  // CONDITION_1 && CONDITION_2  UND-Verknüpfung - Beide Bedingungen müssen erfüllt sein
+  // CONDITION_1 || CONDITION_2 ODER-Verknüpfung - Eine der beiden Bedingungn muss erfüllt sein
+
   // BEDINGUNGEN:
   // if(CONDITION) { ... wird aufgeführt, wenn die CONDITION erfüllt ist ... }
-  if(xPos >= width){
+  /*if(xPos >= width){
     //xSpeed = -5.0;
     xSpeed = -1 * xSpeed;
   }
 
   if(xPos <= 0){
     xSpeed = -xSpeed;
+  }*/
+
+  if(xPos >= width || xPos <= 0){
+    //xSpeed = -5.0;
+    xSpeed = -1 * xSpeed;
+    backgroundColor = color(random(255), random(255), random(255));
   }
 
-  if(yPos >= height){
+
+  /*if(yPos >= height){
     //xSpeed = -5.0;
     ySpeed = -1 * ySpeed;
   }
 
   if(yPos <= 0){
     ySpeed = -ySpeed;
+  }*/
+
+  if(yPos >= height || yPos < 0){
+    ySpeed = -ySpeed;
+    backgroundColor = color(random(255), random(255), random(255));
   }
 
 

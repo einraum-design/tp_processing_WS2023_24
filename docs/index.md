@@ -144,7 +144,7 @@ random(400); // gibt eine Zahl zwischen 0 und 400 zurück
 random(200, 400); // gibt eine Zahl zwischen 200 und 400 zurück
 ```
 
-### Variablentypen
+### Variablentypen & if-Bedingungen
 - [TP 3](https://einraum-design.github.io/tp_processing_WS2023_24/TP3/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2023_24/blob/main/docs/TP3/sketch.js)
 
 ***elementaren Variablen***
@@ -192,7 +192,43 @@ Um Bedingungen zu formulieren gibt es ***Vergleichsoperatoren***
 - A === B --> wenn der Wert von A gleich B ist und der Typ von A und B gleich ist
 - A != B --> wenn der Wert von A nicht gleich B ist
   
-  
+
 Um mehrere Bedingung miteinander zu verbinden gibt es ***Verknüpfungsoperatoren***
 - CONDITION_A && CONDITION_B --> Wenn Bedingung A UND Bedingung B erfüllt sind
 - CONDITION_A || CONDITION_B --> Wenn Bedingung A ODER Bedingung B (oder beide) erfüllt sind
+
+
+## 14.04.2023 – Erweiterung if-Bedingungen
+- [TP 4](https://einraum-design.github.io/tp_processing_WS2023_24/TP4/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2023_24/blob/main/docs/TP4/sketch.js)
+
+### If - else
+Jeder if-Bedingung kann ein else Block angehängt werden. 
+Ist die Bedingung nicht erfüllt, wird der else-Block ausgeführt.
+
+```
+if(mouseIsPressed) {
+    // wenn Maus gedrückt ist Füllfarbe rot
+    fill(255, 0, 0);
+} else {
+    // ansonsten Füllfarbe weiß
+    fill(255);
+}
+```
+
+
+Zusätzlich können noch mehrere "else if" Blöcke an eine if-Bedingung angehängt werden.
+Dann werden die Bedingungen der Reihe nach gecheckt, bis eine Bedingung erfüllt ist.
+Sobald eine erfüllt ist, werden alle weitern "else if" und die "else" einfach übersprungen.
+Es wird also immer nur ein Block ausgeführt.
+
+```
+
+if(CONDITION1) {
+    // ist die erste Bedingung erfüllt wird der erste Block ausgeführt und alles weiteren Abfragen werden übersprungen
+} else if(CONDITION2) {
+    // ist die zweite Bedingung erfüllt wird der zweite Block ausgeführt und alles weiteren Abfragen werden übersprungen
+} ...
+else {
+    // wenn alle Bedingungen nicht erfüllt waren, wird der else Block ausgeführt
+}
+```
