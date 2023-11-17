@@ -232,3 +232,26 @@ else {
     // wenn alle Bedingungen nicht erfüllt waren, wird der else Block ausgeführt
 }
 ```
+
+## 17.11.2023 – Event Listener & Erweiterung if-Bedingungen
+- [TP 5](https://einraum-design.github.io/tp_processing_WS2023_24/TP5/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2023_24/blob/main/docs/TP5/sketch.js)
+
+Soll sich der Status des Buttons auf ein Event (zB. Click) hin umschalten, muss beachtet werden, dass der Wechsel nicht innerhalb der void draw mehrfach ausgeführt wird.
+Deshalb gibt es Event Händler, die auf bestimmte Events hin jeweils einmal ausgeführt werden. Diese stehen außerhalb der function setup() und der function draw().
+```
+// wird in dem Moment aufgerufen, wenn die Maustaste gedrückt wird.
+void mousePressed() {
+    // der Inhalt im Funktionsrumpf wird pro Click einmal ausgeführt.
+}
+```
+
+Weiter Eventhandler für Maus- und TastaturEvents sind in der Referenz zu finden.
+
+### SoundFiles
+
+Audiowiedergabe ist nicht in der Standart p5js Bibliothek enthalten. Die Soundfunktionalität ist in einer eigenen Bibliothe. 
+Standartmäßig ist die Bibliothek aber dabei und schon in der index.html Datei verlinkt.
+
+Sound können ähnlich wie Bilder dem Sketch hinzugefügt werden.
+Es muss eine Variable für die Sounddatei angelegt werden.
+Anschließden kann der Sound abgespielt, geloopt oder pausiert oder gestoppt werden ...
