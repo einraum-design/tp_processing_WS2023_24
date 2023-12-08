@@ -1,6 +1,6 @@
 function setup() {
   let cvs = createCanvas(400, 400, WEBGL);
-  // find the elemetn with id "canavas" and set it as "parent" of cvs
+  // find the element with id "canavas" and set it as "parent" of cvs
   cvs.parent("canvas");
 
   angleMode(DEGREES);

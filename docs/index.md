@@ -290,6 +290,7 @@ Das Zeichenkoordiantensystem lässt sich innerhalb der void draw wieder auf Stan
 
 ## 01.12.2023 – HTML - Grundstruktur jeder Webseite
 - [TP 7](https://einraum-design.github.io/tp_processing_WS2023_24/TP7/page.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2023_24/blob/main/docs/TP7/sketch.js)
+
 Eine kurze Übersicht zu den HTML Basics findet ihr hier: [www.w3schools.com](https://www.w3schools.com/html/html_basic.asp)
 
 
@@ -308,3 +309,106 @@ let cnv = createCanvas(800, 600);
 // Das Element mit der ID "myCanvas" als Elternobjekt setzen:
 cnv.parent("myCanvas");
 ```
+
+## 08.12.2023 – HTML Elemente mit p5js erstellen, Funktionen definieren, Videos einbinden
+
+### HTML Elemente mit p5js erstellen
+Im p5js Sketch lassen sich beliebig weitere HTML Elemente erstellen. Der Vorteil der HTML Element ist, dass sie im Gegensatz von auf dem Canvas gezeichneten Formen direkte Event Listener haben. Das heißt, dass wir direkt auf MouseOver oder Click reagiert werden kann. 
+Beispiel Button:
+
+```
+// Button erstellen:
+let button = createButton("click me");
+// An HTML Objekte kann direkt ein EventListener gehängt werden. Auf jeden Mausklick auf den button wird ausgeführt, wass in den Klammer angegeben wird.
+button.mousePressed( /* to do */ );
+```
+
+In den Klammern vom EventListener kann entweder eine *anonyme Funktion* oder ein Funktionsname angegeben werden:
+```
+// anonyme Funktion:
+button.mousePressed( ()=> { console.log("button wurde geklickt");} );
+
+// Funktionsaufruf
+button.mousePressed(meineFunktion); // meineFunktion(); muss dann im Programm definiert werden
+```
+
+### Funktionen definieren
+Processing bietet einige vordefinierte Funktionen, wie zb. die ellipse(), map(), fill() … Funktionen.
+Wir können jedoch auch beliebig eigene Funktionen definieren.
+
+Sobald ein Programmteil mehrfach genutzt wird, sollte dieser Teil als Funktion ausgelagert werden um doppelten Code (der das Programm unübersichtlich macht und kopierfehler begünstigt) zu vermeiden. 
+
+Es können auch logische Programmteile zusammengefasst werden und als Funktion ausgelagert werden, um das Programm übersichtlicher zu gestalten. ZB. der Programmteil der ein Menü zeichnet ... 
+
+
+Eine Funktionsdefinition besteht aus vier Teilen:
+**Deklaration "function"**
+
+**Funktionsname**
+- beginnt mit einem Kleinbuchstaben
+- ein Wort! (Keine Leerzeichen/Kommas/Punkte)
+
+**Klammern (optional Paramater …)**
+
+```
+function myFunction (parameter1, parameter2){
+    // optional Rückgabewert
+    return result;
+
+}
+```
+
+Es lassen sich auch optionale Parameter in der Funktion definieren:
+```
+function myFunction (parameter1 = 100){
+    ...
+}
+```
+Wenn ein Parameter beim Funktionsaufruf mitgegeben wird, wird dieser als parameter1 gesetzt. Ansonsten wird der Standartwert – in diesem Fall "100" genutzt.
+
+
+Es lassen sich zwei Funktionstypen unterscheiden: 
+
+- Funktionen ohne Rückgabetyp:
+Bei Funktionsaufruf wird alles was im Rumpf steht einfach ausgeführt und danach kehrt das Programme wieder an die Stelle, an der die Funktion aufgerufen wurde zurück und führt die nächsten Befehle aus ...
+
+- Funktionen mit Rückgabetyp
+Am Ende des Funktionsaufrufs muss ein ein „return" mit dem Rückgabewert stehen. 
+die random() Funktion liefert zB. ein Fließkommerzahl zurück ...
+
+
+
+### Videos einbinden
+
+Video können als eigenständiges HTML Element in eine Webseite eingebunden werden. 
+Ein Vidoe Element lässt sich mit folgender Zeile in p5js erstellen:
+```
+video = createVideo("assets/launch2.mp4");
+// es können auch Steuerungselemente beim HTML Video eingeblendet werden:
+video.showControls(true);
+```
+
+Wenn das Video allerdings auf das canvas Element gezeichnet werden soll, muss trotzdem ein Video Element erstellt werden. Hier wird das video allerdings im HTML ausgeblendent und dann nur auf den inhalt des Videoplayer zugegriffen.
+Das Video kann dann mit der image funktion auf das Canvas Element gezeichnet werden:
+```
+video = createVideo("assets/launch2.mp4");
+video.hide();
+
+// innerhalb der function draw()
+image(video, 0, 0);
+```
+
+MediaPlayer habe haben eigene Eventhandler, über die auf zB. Ende des Videos reagiert werden kann: 
+```
+// Listener der aufgerufen wird, wenn ein Video zu Ende gespielt ist
+video.onended(tue_etwas);
+
+// die function "tue_etwas" muss dann noch außerhalb der function setup() definiert werden
+function tue_etwas(elt){
+  console.log("Video ist zu Ende - schlafen gehen");
+  // zB. Videoelement ausblenden ...
+  elt.hide();
+}
+```
+
+
