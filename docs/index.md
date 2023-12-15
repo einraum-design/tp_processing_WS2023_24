@@ -312,6 +312,8 @@ cnv.parent("myCanvas");
 
 ## 08.12.2023 – HTML Elemente mit p5js erstellen, Funktionen definieren, Videos einbinden
 
+- [TP 8](https://einraum-design.github.io/tp_processing_WS2023_24/TP8/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2023_24/blob/main/docs/TP8/sketch.js)
+
 ### HTML Elemente mit p5js erstellen
 Im p5js Sketch lassen sich beliebig weitere HTML Elemente erstellen. Der Vorteil der HTML Element ist, dass sie im Gegensatz von auf dem Canvas gezeichneten Formen direkte Event Listener haben. Das heißt, dass wir direkt auf MouseOver oder Click reagiert werden kann. 
 Beispiel Button:
@@ -412,3 +414,123 @@ function tue_etwas(elt){
 ```
 
 
+
+## 15.12.2023 – Variablen: Arrays und Objekte
+- [TP 9](https://einraum-design.github.io/tp_processing_WS2023_24/TP9/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2023_24/blob/main/docs/TP9/sketch.js)
+
+Um mehrere Werte in nur einem Variablenname speichern zu können gibt es unterschiedlich Konstrukte. 
+
+### Arrays
+Es gibt Array, bei denen jeder Wert über einen Index (Zahl von 0 - n) als Schlüssel angesprochen werden kann.
+Arrays werden über eckige Klammern gekennzeichnet:
+
+```
+ let myArray = [];
+```
+
+Arrays mit Werten initialisieren:
+```
+ let namesArray = ["Andres", "Tina", "Philipp"];
+```
+Der Zugriff auf die Werte erfolg über die den Index in den eckigen Klammern:
+```
+ let myArray[0] = "hello"; // wert "hello" an der Stelle 0 im Array
+```
+Bei Arrays kann man über das Attribut **length** abrufen, wie viele Werte in dem Array aktuell enthalten sind.
+Mit der Methode **.push()** lassen sich neue Werte an das Array hinten anhängen.
+
+### Objekte
+Objekte sind noch etwas allgemeiner gefasst. Hier sind die Schlüssel, um auf die einzelnen Werte von dem Objekt zugreifen zu können nicht festgelegt auf durchnummerierte Zahlen, sondern können jeder Begriff sein.
+Objekt werden über die geschweiften Klammern definiert:
+
+```
+ let myObject = {};
+```
+Schlüssel - Wert - Paare lassen sich einfach über den Punkt-Operator hinzufügen:
+```
+ let myObject = {}
+ myObject.name = "Otto";
+ myObject.alter = 43;
+
+ // oder über den Schlüssel als String ("") in eckigen Klammern hinzufügen:
+ myObject["sex"] = "male";
+```
+
+
+Um Funktionen mehrfach auszuführen, gibt es unterschiedliche Schleifen Konstrukte (while-loop, do-while-loop, for-loop und for-each-loop).
+
+### WHILE-LOOP:
+
+Die while loop ist von der Syntax am einfachsten aufgebaut. 
+```
+  while (CONDITION) {
+    /* do something - Schleifenrumpf */
+  }
+```
+Die Bedingung wird überprüft - wenn die Bedingung true ist, wird der Schleifenrumpf ausgeführt.
+Anschließend wird die Bedingung erneut überprüft und der Schleifenrumpf erneut ausgeführt etc.
+Ist die Bedingung nicht erfüllt, wird die Wiederholung unterbrochen und das Programm nach der Schleife fortgesetzt.
+
+### FOR-LOOP
+Die for Schleife funktioniert sehr ähnlich der while Schleife.
+Als Parameter werden jedoch 3 Teile (statt nur der Bedingung) erwartet.
+
+- Im ersten Teil kann eine Variabel definiert werden. Diese ist dann nur innerhalb des Scheifenrumpfs gültig
+- Im zweiten Teil wird wie in der while Schleife eine Bedingung formuliert.
+- Der dritte Teil wird jeweils am Ende des Schleifenrumps aufgeführt. (Hier wird zB. die Zählervariabel nach jeder  Wiederholung inkrementiert).
+
+```
+// for (VARIABLE-DEFINITION; CONDITION; INCREMENTOR)
+  for (let i = 0; i < 20; i = i + 1) {
+    rotate(random(TWO_PI));
+    fill(100, 100 + i, random(200, 255));
+    ellipse(0, random(-100, 100), 10, 10);
+  }
+```
+
+
+## XX.XX.2023 – CSS
+
+Mit CSS (cascading style sheets) lasse sich html Seiten stylen. Im den CSS Angaben werden Farben, Größen, Abstände, ... eingestellt. 
+
+CSS Regeln können punktuell direkt im HTML angegeben werden:
+```
+<h1 style="color: #ff0000;">Überschrift</h1>
+```
+
+oder im Headerbereich der HTML Seite.
+```
+<html>
+    <head>
+        <style>
+            h1 {
+                color: #ff0000;
+            }
+        </style>
+    </head>
+    <body>
+        ...
+    </body>
+</html>
+```
+
+oder aus einer separaten Datei geladen werden (dies hat den Vorteil, dass die Datein für mehrere HTML Seite genutzt werden kann):
+```
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+    <body>
+        ...
+    </body>
+</html>
+```
+
+
+
+#TP Physical Computing
+## Fadecandy
+Download Fadecandy Software und Beispiel: [Fadecandy.zip](https://einraum-design.github.io/tp_processing_WS2023_24/fadecandy.zip)
+
+## Beispiel API (OpenWeather)
+- [OpenWeatherAPI](https://einraum-design.github.io/tp_processing_WS2023_24/OpenWeatherAPI/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2023_24/blob/main/docs/OpenWeatherAPI/sketch.js)
