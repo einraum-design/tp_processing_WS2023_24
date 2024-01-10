@@ -8,7 +8,7 @@ let submit;
 function setup() {
   createCanvas(400, 400);
 
-  let url = "https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&exclude=minutely,hourly,daily&units=metric&appid=582804ab121fe4507cf623203a072dc4";
+  let url = "https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&exclude=minutely,hourly,daily&units=metric&appid=KEY";
   // weatherLoaded function is called as soon as the data is available
   loadJSON(url, weatherLoaded);
 
@@ -48,7 +48,7 @@ function loadData(){
   let baseurl = "https://api.openweathermap.org/data/3.0/onecall?";
   let latVal = "lat=" + lat.value();
   let longVal = "lon=" + long.value();
-  let params = "&exclude=minutely,hourly,daily&units=metric&appid=582804ab121fe4507cf623203a072dc4";
+  let params = "&exclude=minutely,hourly,daily&units=metric&appid=KEY";
 
   let callurl = baseurl + latVal + "&" + longVal + params;
   console.log(callurl);
