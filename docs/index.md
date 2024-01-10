@@ -525,7 +525,7 @@ oder aus einer separaten Datei geladen werden (dies hat den Vorteil, dass die Da
     </body>
 </html>
 ```
-
+Videotutorial: [Learn CSS in 20 Miniutes](https://www.youtube.com/watch?v=1PnVor36_40)
 
 
 # TP Physical Computing
